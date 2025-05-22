@@ -1,18 +1,25 @@
-﻿@model IEnumerable<session_1.Models.Product>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<session_1.Models.Product>
 <!DOCTYPE html>
+
 <html>
 <head>
     <title>Coffee Shop</title>
 </head>
 <body>
     <h1>Shop Coffee</h1>
-    @foreach (var item in Model)
-    {
-        <div>
-            <img width="100" src="@item.ImageUrl" alt="@item.Name" />
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <img width="100" src="@item.ImageUrl" />
             <h3>@item.Name</h3>
             <p>@item.Price.ToString("C")</p>
-        </div>
-    }
+            <div class="single-product">
+                <img width="100" src="@item.ImageUrl" />
+                <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.Id" target="_blank"><h3> @item.Name</h3></a>
+                <p> @item.Price.ToString("C") </p>
+            </div>
+        }
+    </div>
 </body>
 </html>
