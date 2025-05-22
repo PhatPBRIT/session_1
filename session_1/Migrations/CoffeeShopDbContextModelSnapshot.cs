@@ -75,6 +75,33 @@ namespace session_1.Migrations
                             IsTrendingProduct = true,
                             Name = "United Kingdom",
                             Price = 15m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Detail = "India product",
+                            ImageUrl = "https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Cup-Of-Creamy-Coffee-1024x536.webp",
+                            IsTrendingProduct = false,
+                            Name = "India",
+                            Price = 15m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Detail = "Russian product",
+                            ImageUrl = "https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Cup-Of-Creamy-Coffee-1024x536.webp",
+                            IsTrendingProduct = true,
+                            Name = "Russian",
+                            Price = 25m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Detail = "France product",
+                            ImageUrl = "https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Cup-Of-Creamy-Coffee-1024x536.webp",
+                            IsTrendingProduct = true,
+                            Name = "France",
+                            Price = 35m
                         });
                 });
 #pragma warning restore 612, 618

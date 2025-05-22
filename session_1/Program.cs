@@ -34,10 +34,10 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "product",
-    pattern: "{controller=Product}/{action=ListAll}/{id?}");
+    pattern: "{controller=Products}/{action=ListAll}/{id?}");
 
 app.MapControllerRoute(
     name: "shop",
-    pattern: "{controller=Product}/{action=Shop}/{id?}");
+    pattern: "{controller=Products}/{action=Shop}/{id?}");
 
 app.Run();
