@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@inject IHttpContextAccessor HttpContextAccessor
+@{
+    var cartCount = HttpContextAccessor.HttpContext?.Session.GetInt32("CartCount") ?? 0;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -27,6 +32,7 @@
     </noscript>
     <link rel="preload" as="style" href="~/assets/mobirise/css/mbr-additional.css">
     <link rel="stylesheet" href="~/assets/mobirise/css/mbr-additional.css" type="text/css">
+    <a href="@Url.Action("Index", "ShoppingCart")">Cart (@cartCount)</a>
 </head>
 
 <body>
@@ -55,11 +61,11 @@
                     <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
                         <li class="nav-item">
                             <a class="nav-link link text-black show display-4"
-                               href="index.html">Home</a>
+                              asp-controller="Home" asp-action="Index" >Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link text-black show display-4"
-                               href="shop.html">Shop</a>
+                               asp-controller="Products" asp-action="Shop" >Shop</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link text-black show display-4"
@@ -105,3 +111,4 @@
     <script src="~/assets/dropdown/js/navbar-dropdown.js"></script>
     <script src="~/assets/theme/js/script.js"></script>
 </body>
+</html>

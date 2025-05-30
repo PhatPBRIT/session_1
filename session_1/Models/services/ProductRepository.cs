@@ -16,7 +16,7 @@ namespace session_1.Models.Services
 
         public IEnumerable<Product> GetAllProducts()
         {
-            return _dbContext.Products.ToList();
+            return _dbContext.Products;
         }
 
         public Product? GetProductDetail(int id)
@@ -26,7 +26,7 @@ namespace session_1.Models.Services
 
         public IEnumerable<Product> GetTrendingProducts()
         {
-            return _dbContext.Products.Where(p => p.IsTrendingProduct).ToList();
+            return _dbContext.Products.Where(p => p.IsTrendingProduct);
         }
     }
 }

@@ -1,39 +1,32 @@
-﻿    using Microsoft.AspNetCore.Mvc;
-    using session_1.Models.Interfaces;
-    using session_1.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using session_1.Models;
+using session_1.Models.Interfaces;
 
-    namespace session_1.Controllers
+namespace session_1.Controllers
+{
+    public class ProductsController : Controller
     {
-        public class ProductsController : Controller
+        private readonly IProductRepository productRepository;
+
+        public ProductsController(IProductRepository productRepository)
         {
-            private readonly IProductRepository _productRepository;
+            this.productRepository = productRepository;
+        }
 
-            public ProductsController(IProductRepository productRepository)
+        public IActionResult Shop()
+        {
+            var products = productRepository.GetAllProducts();
+            return View(products);
+        }
+
+        public IActionResult Detail(int id)
+        {
+            var product = productRepository.GetAllProducts().FirstOrDefault(p => p.Id == id);
+            if (product == null)
             {
-                _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
-            }
-
-            public IActionResult Shop()
-            {
-                var product = _productRepository.GetAllProducts();
-
-           
-                if (product == null)
-                {
-                    product = new List<Product>();
-                }
-
-                return View(product);
-            }
-
-            public IActionResult Detail(int id)
-            {
-                var product = _productRepository.GetProductDetail(id);
-                if (product != null)
-                {
-                    return View(product);
-                }
                 return NotFound();
             }
+            return View(product);
         }
     }
+}

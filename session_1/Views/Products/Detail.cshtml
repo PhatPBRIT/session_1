@@ -1,13 +1,11 @@
-﻿
-@model session_1.Models.Product
+﻿@model session_1.Models.Product
 <br />
 <div class="container">
     <div class="card-wrapper">
         <div class="row align-items-center">
             <div class="col-12 col-lg-6">
                 <div class="image-wrapper">
-                    <img src="@Model.ImageUrl"
-                         alt="Website Builder">
+                    <img src="@Model.ImageUrl" alt="@Model.Name">
                 </div>
             </div>
             <div class="col-12 col-lg">
@@ -19,11 +17,11 @@
                         @Model.Detail
                     </p>
                     <div class="cost">
-                        <span class="currentcost mbr-fonts-style pr-2 display-2">@Model.Price.ToString("c")</span>
+                        <span class="currentcost mbr-fonts-style pr-2 display-2">@Model.Price.ToString("C")</span>
                     </div>
                     <div class="mbr-section-btn pt-3">
-                        <a href="" class="btn btn-primary display-4">
-                            <span class="mbrib-cart-add mbr-iconfont mbr-iconfont-btn"></span>Add to cart&nbsp;
+                        <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pId="@Model.Id" class="btn btn-primary display-4">
+                            <span class="mbrib-cart-add mbr-iconfont mbr-iconfont-btn"></span>Add to cart
                         </a>
                     </div>
                 </div>

@@ -11,8 +11,8 @@ using session_1.Data;
 namespace session_1.Migrations
 {
     [DbContext(typeof(CoffeeShopDbContext))]
-    [Migration("20250522151936_FirstCreate")]
-    partial class FirstCreate
+    [Migration("20250529033324_gvty")]
+    partial class gvty
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,9 +55,9 @@ namespace session_1.Migrations
                         new
                         {
                             Id = 1,
-                            Detail = "Name product",
+                            Detail = "Name product ",
                             ImageUrl = "https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Cup-Of-Creamy-Coffee-1024x536.webp",
-                            IsTrendingProduct = false,
+                            IsTrendingProduct = true,
                             Name = "America",
                             Price = 25m
                         },
@@ -84,7 +84,7 @@ namespace session_1.Migrations
                             Id = 4,
                             Detail = "India product",
                             ImageUrl = "https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Cup-Of-Creamy-Coffee-1024x536.webp",
-                            IsTrendingProduct = false,
+                            IsTrendingProduct = true,
                             Name = "India",
                             Price = 15m
                         },
@@ -106,6 +106,39 @@ namespace session_1.Migrations
                             Name = "France",
                             Price = 35m
                         });
+                });
+
+            modelBuilder.Entity("session_1.Models.ShoppingCartItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ProductsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Qty")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductsId");
+
+                    b.ToTable("ShoppingCartItems");
+                });
+
+            modelBuilder.Entity("session_1.Models.ShoppingCartItem", b =>
+                {
+                    b.HasOne("session_1.Models.Product", "Products")
+                        .WithMany()
+                        .HasForeignKey("ProductsId");
+
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

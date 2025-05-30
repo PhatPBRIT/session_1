@@ -23,7 +23,7 @@ namespace session_1.Controllers
                 new Product { Name = "Cappuccino", Price = 3.00m, ImageUrl = "https://images.unsplash.com/photo-1541167760496-1628856ab772?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" }
             };
 
-            return View(product); // Truyền danh sách vào view
+            return View(product); // Truyền danh sách vào view....
         }
 
         public IActionResult Privacy()
