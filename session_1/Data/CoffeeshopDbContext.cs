@@ -1,9 +1,10 @@
 ﻿using session_1.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace session_1.Data
 {
-    public class CoffeeShopDbContext : DbContext
+    public class CoffeeShopDbContext : IdentityDbContext
     {
         public CoffeeShopDbContext(DbContextOptions<CoffeeShopDbContext> options) : base(options) { }
 

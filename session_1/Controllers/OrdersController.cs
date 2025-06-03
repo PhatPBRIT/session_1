@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using session_1.Models;
 using session_1.Models.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+
 namespace session_1.Controllers
 {
     public class OrdersController : Controller
