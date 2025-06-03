@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using session_1.Data;
 using session_1.Models;
 using session_1.Models.Interfaces;
+using session_1.Models.Services;
 
 
 namespace coffeeshop.Models.Services
@@ -67,6 +69,7 @@ namespace coffeeshop.Models.Services
             var shoppingCartItem = dbContext.ShoppingCartItems.FirstOrDefault(s =>
            s.Products.Id == product.Id && s.ShoppingCartId == ShoppingCartId);
             var quantity = 0;
+
             if (shoppingCartItem != null)
             {
                 if (shoppingCartItem.Qty > 1)
@@ -82,5 +85,6 @@ namespace coffeeshop.Models.Services
             dbContext.SaveChanges();
             return quantity;
         }
+
     }
 }
