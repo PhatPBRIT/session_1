@@ -22,7 +22,7 @@ namespace session_1.Controllers
         {
             orderRepository.PlaceOrder(order);
             shoppingCartRepository.ClearCart();
-
+            HttpContext.Session.SetInt32("CartCount", 0);
             return RedirectToAction("CheckoutComplete");
         }
         public IActionResult CheckoutComplete()
