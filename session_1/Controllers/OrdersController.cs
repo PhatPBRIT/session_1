@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace session_1.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private IOrderRepository orderRepository;
